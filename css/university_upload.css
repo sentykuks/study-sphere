@@ -1,0 +1,71 @@
+.paper-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.paper-card .card {
+    height: 200px; /* Ensure full image visibility */
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paper-card .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('PDF.png') center/contain no-repeat; /* Ensure the full image is visible */
+    background-size: contain;
+    opacity: 1; /* Full visibility */
+    z-index: 0; /* Behind text */
+}
+
+.paper-card .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    z-index: 1; /* Above the image */
+}
+
+.paper-card h5, 
+.paper-card p {
+    margin-bottom: 8px;
+}
+
+.paper-card .btn {
+    margin-top: 10px;
+    z-index: 2; /* Ensure buttons are clickable */
+}
+
+.remove-paper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(250, 246, 246, 0.8);
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.remove-paper:hover {
+    background: white;
+}

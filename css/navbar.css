@@ -1,0 +1,165 @@
+/* nav bar section */
+nav {
+  position: fixed;
+  padding: 15px;
+  width: 100%;
+  z-index: 1000;
+  padding-block: 5px;
+  /* border-radius: 8px; */
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #00b4db, #0083b0);
+  animation: gradientAnimation 0.2s ease infinite;
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+nav .menu-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-bar ul {
+  gap: 30px;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu-bar ul li {
+  position: relative;
+  padding: 6px 19px;
+  font-size: 20px;
+  transition: 0.6s ease-out;
+}
+
+.menu-bar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-bar ul li a:hover {
+  color: whitesmoke !important;
+  font-size: 16px;
+}
+
+.menu-bar #check {
+  display: none;
+}
+.menu-center {
+  display: flex;
+}
+.icon-bar .fa {
+  font-size: 25px;
+}
+
+.icon-bar {
+  display: none;
+}
+
+.primary-button,
+.secondary-button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.secondary-button {
+  border-radius: 20px;
+  transition: 0.2s ease-out;
+}
+
+.secondary-button > a {
+  color: white;
+}
+
+.secondary-button:hover {
+  background-color: #0265ac;
+}
+
+/* Profile Section (Responsive) */
+.menu-bar .navbar-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-bar .navbar-nav a {
+  display: flex;
+  text-decoration: none;
+  padding: 0 15px;
+  color: lightgreen;
+}
+nav ul::after {
+  content: " |";
+  font-weight: bold;
+  color: cya; /* Customize */
+}
+
+.menu-bar .navbar-nav a i {
+  margin-right: 8px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .menu-bar ul {
+    display: none; /* Hide the main menu on smaller screens */
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .icon-bar {
+    display: block;
+  }
+
+  .icon-bar input {
+    display: none;
+  }
+
+  .icon-bar label {
+    font-size: 30px;
+    color: white;
+  }
+
+  .icon-bar input:checked ~ ul {
+    display: flex; /* Show the menu when the checkbox is checked */
+  }
+
+  .menu-bar .navbar-nav {
+    margin-left: 0;
+    padding-top: 10px;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

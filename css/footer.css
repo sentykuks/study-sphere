@@ -1,0 +1,61 @@
+/* ...............................................footer............................................................ */
+/* Footer General Styles */
+footer {
+  background-color: rgb(27, 26, 26);
+  color: white;
+}
+
+.footer-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 20px;
+  gap: 20px;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.footer-section .division {
+  width: 20%; /* Equal width for all divisions */
+  min-width: 200px; /* Minimum width for smaller screens */
+  height: 180px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  color: #00c2ff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  line-height: 25px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #00c2ff;
+}
+
+/* Social Icons */
+.socials li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.socials li a img {
+  height: 24px;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.socials li a img:hover {
+  transform: scale(1.2);
+}
