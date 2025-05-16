@@ -1,0 +1,247 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f4f7fc;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #6a11cb,
+    #2575fc,
+    #00b4db,
+    #0083b0
+  ) !important;
+  animation: gradientAnimation 0.2s ease infinite;
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  height: 100vh;
+  overflow: hidden;
+}
+/* Card Styling for OTP Form */
+.card {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Transparent background for the card */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+.forget-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1px auto;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Hover effect: card lifts up */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow when hovered */
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+.custom-width {
+  max-width: 300px; /* Adjust as needed */
+  width: 100%; /* Ensures responsiveness */
+  margin: 0 auto; /* Centers the div */
+}
+
+.image-section img {
+  flex: 1;
+  background: url("./images/reset_password.jpg") no-repeat center center;
+  background-size: cover; /* Changed to cover for better visibility */
+  min-height: 300px;
+  width: 400px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card-body .form-label {
+  font-size: 16px;
+  display: flex;
+  color: blue;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.card-body .form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-body .form-control:focus {
+  border-color: #0265ac;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* Glow effect when focused */
+}
+
+.card-body .btn-primary {
+  background-color: #0265ac;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  width: 90%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 400;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-body .btn-primary:hover {
+  background-color: #ff5e5e;
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card-body .mt-3 {
+  text-align: center;
+}
+
+.card-body .mt-3 a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.card-body .mt-3 a:hover {
+  color: #ff5e5e;
+}
+.form-control:focus {
+  border-color: #0265ac;
+  box-shadow: 0 0 8px rgba(0, 102, 204, 0.5);
+}
+
+/* Animation for form elements */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Responsive Card for Mobile */
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+
+/* .........................verify_otp.php............................................ */
+body {
+  background-color: #f4f7fa;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.otp label {
+  color: blue;
+}
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  margin-left: 400px;
+}
+
+.card-forget {
+  color: blue;
+  /* text-align: center; */
+  font-weight: 400;
+  margin-left: 12px;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+/* .card .card-body {
+  padding: 1.5rem;
+} */
+.card-body p {
+  font-size: 14px;
+  color: #007bff;
+  line-height: 19px;
+  /* text-align: center; */
+}
+
+.form-control {
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 10px;
+  padding: 10px;
+  width: 95%;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.alert {
+  border-radius: 10px;
+}
+
+.footer-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.text-center {
+  margin-top: 1rem;
+}
