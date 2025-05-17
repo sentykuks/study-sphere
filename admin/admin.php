@@ -207,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h3 class="text-center">Upload a New Note</h3>
             </div>
             <div class="card-body">
-                <form action="upload2.php" method="POST" enctype="multipart/form-data">
+                <form action="../upload2.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="title" class="form-label">Note Title</label>
                         <input type="text" name="title" id="title" class="form-control" required>

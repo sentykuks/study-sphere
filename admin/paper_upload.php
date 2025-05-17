@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Only PDF files are allowed!');</script>";
     } elseif (move_uploaded_file($_FILES["exam_paper"]["tmp_name"], $target_file)) {
         // Store in Database
-        $stmt = $conn->prepare("INSERT INTO paper (university_name, course, subject, paper_year, file_path) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO papers (university, course, subject, paper_year, file_path) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $university, $course, $subject, $paper_year, $target_file);
         $stmt->execute();
         echo "<script>alert('Paper uploaded successfully!');</script>";
@@ -65,8 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
+
     <div class="container py-5">
-        <h2 class="text-center mb-4">📄 Upload University Paper</h2>
+        <div class=" d-flex justify-content-between align-items-center">
+            <h2 class="text-center mb-4">📄 Upload University Paper</h2>
+            <a href="admin.php" class="btn btn-primary">Back to Dashboard</a>
+        </div>
         
         <form action="" method="POST" enctype="multipart/form-data" class="p-4 bg-white shadow rounded">
             <div class="mb-3">

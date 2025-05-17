@@ -82,7 +82,7 @@ try {
                                                         <p class="mb-0 fw-bold">name</p>
                                                     </div>
                                                     <div class="col-sm-9">
-                                                        <p class="text-muted mb-0">Anand paswan</p>
+                                                        <p class="text-muted mb-0">Santosh kukreti</p>
                                                     </div>
                                         </div>
                                         <hr>

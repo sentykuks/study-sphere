@@ -28,7 +28,7 @@ $selectedData = $universityData[$selectedUniversity];
 // Fetch Papers
 $papers = [];
 if (!empty($selectedSubject)) {
-    $stmt = $pdo->prepare("SELECT * FROM paper WHERE university_name = :university AND subject = :subject");
+    $stmt = $pdo->prepare("SELECT * FROM papers WHERE university = :university AND subject = :subject");
     $stmt->execute(['university' => $selectedUniversity, 'subject' => $selectedSubject]);
     $papers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
