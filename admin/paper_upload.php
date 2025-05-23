@@ -1,9 +1,6 @@
+<?php include __DIR__ . "/../configs/path.php"; ?>
+<?php include __DIR__ . "/../conn/conn.php"; ?>
 <?php
-// Database Connection
-$conn = new mysqli("localhost", "root", "", "base");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 // University Data with Courses & Subjects (Simulating University Hub)
 $universityData = [
@@ -14,15 +11,16 @@ $universityData = [
     'Graphic_Era' => [
         'MCA' => ['Cloud Computing', 'Cyber Security'],
         'BCA' => ['Java', 'Database Management'],
-    ],
-    'DIT' => [
-        'Civil Engineering' => ['Construction Materials', 'Geotechnical Engineering'],
-        'Electrical Engineering' => ['Power Systems', 'Circuit Theory'],
-    ],
-    'MIT' => [
-        'BCA' => ['Web Programming', 'AI & ML'],
-        'BSc IT' => ['Cybersecurity', 'Networking'],
     ]
+
+    // 'DIT' => [
+    //     'Civil Engineering' => ['Construction Materials', 'Geotechnical Engineering'],
+    //     'Electrical Engineering' => ['Power Systems', 'Circuit Theory'],
+    // ],
+    // 'MIT' => [
+    //     'BCA' => ['Web Programming', 'AI & ML'],
+    //     'BSc IT' => ['Cybersecurity', 'Networking'],
+    // ]
 ];
 
 // Handle Form Submission
@@ -46,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Only PDF files are allowed!');</script>";
     } elseif (move_uploaded_file($_FILES["exam_paper"]["tmp_name"], $target_file)) {
         // Store in Database
-        $stmt = $conn->prepare("INSERT INTO papers (university, course, subject, paper_year, file_path) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $university, $course, $subject, $paper_year, $target_file);
-        $stmt->execute();
+       $stmt = $pdo->prepare("INSERT INTO paper (university, course, subject, year, file_path) VALUES (?, ?, ?, ?, ?)");
+$stmt->execute([$university, $course, $subject, $paper_year, $target_file]);
+
         echo "<script>alert('Paper uploaded successfully!');</script>";
     } else {
         echo "<script>alert('Error uploading file!');</script>";
@@ -58,15 +56,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload University Paper</title>
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap & Tailwind CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>css/ruang-admin.min.css">
 </head>
-<body class="bg-light">
 
-    <div class="container py-5">
+<body id="page-top">
+    <div id="wrapper">
+        <style>
+            .actives {
+                color: #6e707e;
+                background-color: #eee;
+                font-weight: 600;
+            }
+        </style>
+
+
+
+        <!-- Sidebar -->
+        <?php include __DIR__ . "/../common/sidebar.php" ?>
+        <!-- Sidebar -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- TopBar -->
+                <?php include __DIR__ . "/../common/admin_nav.php" ?>  <div class="container py-5">
         <div class=" d-flex justify-content-between align-items-center">
             <h2 class="text-center mb-4">📄 Upload University Paper</h2>
             <a href="admin.php" class="btn btn-primary">Back to Dashboard</a>
